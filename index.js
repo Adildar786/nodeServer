@@ -55,21 +55,21 @@ app.get('/getUserInfo', async (req, res, next) => {
   }
 })
 app.use('/', async (req, res, next) => {
-  const meetingResponse = await chime.createMeeting({
-    ClientRequestToken: uuid(),
-    MediaRegion: 'us-west-2' // Specify the region in which to create the meeting.
-  }).promise();
+  // const meetingResponse = await chime.createMeeting({
+  //   ClientRequestToken: uuid(),
+  //   MediaRegion: 'us-west-2' // Specify the region in which to create the meeting.
+  // }).promise();
 
-  const attendeeResponse = await chime.createAttendee({
-    MeetingId: meetingResponse.Meeting.MeetingId,
-    ExternalUserId: uuid() // Link the attendee to an identity managed by your application.
-  }).promise();
-  console.log(attendeeResponse, meetingResponse)
-  const response = {
-    attendeeResponse: attendeeResponse,
-    meetingResponse: meetingResponse
-  }
-  res.status(200).json(response);
+  // const attendeeResponse = await chime.createAttendee({
+  //   MeetingId: meetingResponse.Meeting.MeetingId,
+  //   ExternalUserId: uuid() // Link the attendee to an identity managed by your application.
+  // }).promise();
+  // console.log(attendeeResponse, meetingResponse)
+  // const response = {
+  //   attendeeResponse: attendeeResponse,
+  //   meetingResponse: meetingResponse
+  // }
+  res.status(200).json("welcome to node Server");
 })
 
 
